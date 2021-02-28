@@ -1,0 +1,33 @@
+<div class="container p-3">
+  <div class="offset-3 col-6">
+
+    <div class="card">
+      <div class="card-header  font-weight-bold">
+        Verify email
+      </div>
+      <div class="card card-body">
+        <h2>Please check your mailbox : we've sent you a confirmation code</h2>
+        <div style="margin: auto">
+          <img src="assets/mail-sent.svg" style="width: 300px">
+        </div>
+
+        <br>
+
+        <div class="form-group">
+          <label for="code" >Confirmation code</label>
+          <input id="code" [(ngModel)]="code"  class="form-control" [ngClass]="errorValidatingCode ? 'is-invalid' : ''">
+          <label class="text-danger" *ngIf="errorValidatingCode">
+            {{errorValidatingCode}}
+          </label>
+          <label class="text-danger" *ngIf="successValidatingCode">
+            {{successValidatingCode}}
+          </label>
+        </div>
+        <div>
+          <button (click)="confirmEmailWithCode()" class="btn btn-primary">Confirm</button>
+          <button (click)="resendCode()" class="btn btn-secondary">Resend code</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
